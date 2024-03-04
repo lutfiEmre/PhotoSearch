@@ -1,33 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Quicksand:wght@300..700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+
+.bg1{
+
+    background: linear-gradient(110deg, #222 -15.55%, #303030 120.82%);
+}
+.manrope800{
+    font-family: "Manrope", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+.manrope600{
+    font-family: "Manrope", sans-serif;
+    font-weight: 600;
+    font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+
+.extra1{
+    border-radius: 836px;
+    opacity: 0.4;
+    background: rgba(151, 115, 255, 0.50);
+    filter: blur(100px);
+}
+.extra2{
+    background: #73C4FF;;
+    opacity: 0.15;
+    filter: blur(100px);
+}
+.extra3{
+    border-radius: 718px;
+    opacity: 0.4;
+    background: rgba(254, 254, 254, 0.35);
+    filter: blur(100px);
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.text1{
+    background: linear-gradient(90deg, #7BFEDE -2.88%, #3599E2 55.22%, #FFA4FB 104.62%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.bg2{
+    border-radius: 17.5px;
+    border: 2px solid #FFFA8C;
+    transition: all;
+    transition-duration: 1000ms;
+    background: linear-gradient(97deg, #D1CC53 -8.52%, #7C24C0 55.26%, #20ABBE 120.37%);
+    box-shadow: 0px 21px 105px 0px rgba(233, 101, 236, 0.20), 0px -21px 105px 0px rgba(101, 106, 236, 0.20);
+}
+.bg2:hover{
+    transition: all;
+    transition-duration: 1000ms;
+    background: linear-gradient(97deg,  #7C24C0 -8.52%, #7C24C0 55.26%, #D1CC53 120.37%);
+    box-shadow: 0px 21px 105px 0px rgba(233, 101, 236, 0.20), 0px -21px 105px 0px rgba(101, 106, 236, 0.20);
+
+}
+.bg3{
+    border-radius: 14.333px;
+    border: 2px solid rgba(238, 238, 238, 0.30);
+    background: #222;
+    box-shadow: 0px 17.2px 86px 0px rgba(238, 238, 238, 0.10), 0px -17.2px 86px 0px rgba(238, 238, 238, 0.10);
 }
