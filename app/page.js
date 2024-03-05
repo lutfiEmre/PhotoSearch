@@ -1,10 +1,29 @@
+'use client'
 import Image from "next/image";
 import SearcherInput from "@/components/SearcherInput";
-import {useState} from "react";
+import SearchImages from "@/components/UnsplashApi";
+import React, {useEffect, useState} from "react";
+
 
 export default function Home() {
-    const [searcher,setSearcher] = useState('')
-  return (
+    const [searcher,setSearcher] = useState([])
+    const [text,setText] = useState('')
+    const fetchRequest = async () => {
+        const Access_Key = 'vbAkWp_2gESij3UgK8Cira7YN431RKM4e5gkI8WcZ7o'
+        const perPage = 5;
+
+        const data = await fetch(
+            `https://api.unsplash.com/search/photos?page=1&query=${text}&per_page=${perPage}&client_id=${Access_Key}`
+        );
+        const dataJ = await data.json();
+        const result = dataJ.results;
+        console.log(result);
+        setSearcher(result)
+    };
+    useEffect(() => {
+        fetchRequest()
+    }, [text]);
+   return (
     <main className="flex flex-col w-full h-screen items-center justify-start">
       <div className={'flex flex-col w-full px-[100px] py-[50px] h-screen flex-row justify-start items-start bg1'}>
           <div className={'flex flex-wrap w-full justify-between items-center'}>
@@ -38,9 +57,21 @@ export default function Home() {
 
           </div>
           <div className={'w-full mt-[81px] h-[60px] z-20  bg3'}>
-              <SearcherInput searcher={searcher} setSearcher={setSearcher}/>
+              <input onChange={(e) => {
+                  setText(e.target.value)
+              }} placeholder={'Search with Image Searcher'} className={'active:outline-none manrope600 outline-none z-20 h-[60px] px-[30px] text-white bg-transparent w-full h-full'} type="text"/>
           </div>
+          <div className={'flex flex-row mt-[50px]  flex-wrap'}>
+              {searcher.map((item,index) => (
+                  <div className={'w-[200px] h-[200px]'} key={index}>
+                      <Image className={'w-[200px] h-[200px]'} width={250} height={250} src={item.links.download} alt={''}/>
+                  </div>
+              ))
+              }
+          </div>
+
       </div>
     </main>
   );
 }
+
